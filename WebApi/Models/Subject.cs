@@ -7,7 +7,8 @@ namespace WebApi.Models
 {
     public class Subject
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int SubjectId;
+        public string SubjectName;
+        //TODO : добавить указание каким курсам она читается?
     }
 }
