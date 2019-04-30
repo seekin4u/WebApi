@@ -7,9 +7,9 @@ namespace WebApi.Models
 {
     public class Hall
     {
-        public int HallId;
-        public string HallName;
-        public string HallLocation;
-        public bool HallAviability;
+        public int HallId { get; set; }
+        public string HallName { get; set; }
+        public string HallLocation { get; set; }
+        public bool HallAviability { get; set; }
     }
 }

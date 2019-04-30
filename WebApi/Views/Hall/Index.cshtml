@@ -1,0 +1,13 @@
+﻿@model IEnumerable<WebApi.Models.Hall>
+@{
+    ViewBag.Title = "Halls";
+}
+<a asp-action="Create">Add hall</a>
+<p><a href="https://localhost:5001/hall/create">Create</a></p>
+<table class="table">
+    <tr><td>Name</td><td>Location</td><td>Aviability</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.HallName</td><td>@item.HallLocation</td><td>@item.HallAviability</td></tr>
+    }
+</table>

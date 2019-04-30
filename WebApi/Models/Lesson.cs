@@ -7,10 +7,10 @@ namespace WebApi.Models
 {
     public class Lesson
     {
-        public int LessonId;
-        public Subjecting LessonSubject;
-        public Hall LessonHall;
-        public List<Group> LessonGroups;
+        public int LessonId { get; set; }
+        public Subjecting SubjectingId { get; set; }
+        public Hall HallId { get; set; }
+        public List<Group> LessonGroups { get; set; }
 
     }
 }

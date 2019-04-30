@@ -1,0 +1,23 @@
+﻿@model WebApi.Models.Hall
+@{
+    ViewBag.Title = "Добавление Hall";
+}
+    <form asp-action="Create" asp-controller="hall" method="post">
+        <div class="form-group">
+            <label class="control-label">Название аудитории</label>
+            <input type="text" Name="HallName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Расположение</label>
+            <input type="text" name="HallLocation" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Доступна</label>
+            <input type="checkbox" name="HallAviability" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit">
+        </div>
+
+    </form>

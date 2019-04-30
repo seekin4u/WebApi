@@ -14,7 +14,7 @@ namespace WebApi.Models
     {
         public int Id { get; set; }
         public string NameSurname { get; set; }
-        public List<Subject> Subjects { get; set; }
+        public Group Group { get; set; }
 
     }
 }
