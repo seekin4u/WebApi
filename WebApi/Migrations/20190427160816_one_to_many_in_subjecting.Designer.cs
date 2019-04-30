@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi.Contexts;
 
 namespace WebApi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20190427160816_one_to_many_in_subjecting")]
+    partial class one_to_many_in_subjecting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,11 +116,15 @@ namespace WebApi.Migrations
 
                     b.Property<int?>("SubjectId1");
 
+                    b.Property<int?>("SubjectingTeachersTeacherId");
+
                     b.Property<int?>("TeachingGroupGroupId");
 
                     b.HasKey("SubjectingId");
 
                     b.HasIndex("SubjectId1");
+
+                    b.HasIndex("SubjectingTeachersTeacherId");
 
                     b.HasIndex("TeachingGroupGroupId");
 
@@ -131,15 +137,11 @@ namespace WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("SubjectingId");
-
                     b.Property<string>("TeacherGrade");
 
                     b.Property<string>("TeacherNameSurname");
 
                     b.HasKey("TeacherId");
-
-                    b.HasIndex("SubjectingId");
 
                     b.ToTable("Teacher");
                 });
@@ -179,16 +181,13 @@ namespace WebApi.Migrations
                         .WithMany()
                         .HasForeignKey("SubjectId1");
 
+                    b.HasOne("WebApi.Models.Teacher", "SubjectingTeachers")
+                        .WithMany()
+                        .HasForeignKey("SubjectingTeachersTeacherId");
+
                     b.HasOne("WebApi.Models.Group", "TeachingGroup")
                         .WithMany()
                         .HasForeignKey("TeachingGroupGroupId");
-                });
-
-            modelBuilder.Entity("WebApi.Models.Teacher", b =>
-                {
-                    b.HasOne("WebApi.Models.Subjecting")
-                        .WithMany("SubjectingTeachers")
-                        .HasForeignKey("SubjectingId");
                 });
 #pragma warning restore 612, 618
         }
