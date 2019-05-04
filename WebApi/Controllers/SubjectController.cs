@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         [Route("[controller]")]
         public async Task<IActionResult> Index()
         {
-            return View(await db.Subjects.ToListAsync());
+            return View(await db.Subject.ToListAsync());
         }
 
 
@@ -34,9 +34,9 @@ namespace WebApi.Controllers
 
         [Route("[controller]/create")]
         [HttpPost]
-        public async Task<IActionResult> Create(Hall hall)
+        public async Task<IActionResult> Create(Subject subject)
         {
-            db.Hall.Add(hall);
+            db.Subject.Add(subject);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

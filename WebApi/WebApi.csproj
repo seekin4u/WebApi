@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Новая папка\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
