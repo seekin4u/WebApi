@@ -9,13 +9,13 @@ namespace WebApi.Contexts
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Lesson> Lesson { get; set; }
         public DbSet<Hall> Hall { get; set; }
-        public DbSet<Subjecting> Subjectings { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Subjecting> Subjecting { get; set; }
+        public DbSet<Group> Group { get; set; }
+        public DbSet<Subject> Subject { get; set; }
+        public DbSet<Teacher> Teacher { get; set; }
+        public DbSet<Student> Student { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
